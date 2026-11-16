@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:allowBackup="false"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Widget settings screen (opens when a widget is added and when it is tapped) -->
+        <activity
+            android:name=".ConfigActivity"
+            android:exported="true"
+            android:label="@string/settings_title">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name=".Widget1x1Provider"
+            android:exported="true"
+            android:label="@string/widget_1x1">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_1x1" />
+        </receiver>
+
+        <receiver
+            android:name=".Widget2x1Provider"
+            android:exported="true"
+            android:label="@string/widget_2x1">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_2x1" />
+        </receiver>
+
+        <receiver
+            android:name=".Widget3x1Provider"
+            android:exported="true"
+            android:label="@string/widget_3x1">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_3x1" />
+        </receiver>
+
+        <receiver
+            android:name=".Widget2x2Provider"
+            android:exported="true"
+            android:label="@string/widget_2x2">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_2x2" />
+        </receiver>
+
+        <receiver
+            android:name=".Widget3x2Provider"
+            android:exported="true"
+            android:label="@string/widget_3x2">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_3x2" />
+        </receiver>
+
+        <!-- Provides the scrollable pages inside each widget -->
+        <service
+            android:name=".CountdownWidgetService"
+            android:exported="false"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <!-- Keeps the clock/age fresh -->
+        <receiver
+            android:name=".TickReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.example.agecountdown.TICK" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.intent.action.DATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>
