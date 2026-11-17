@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">#0F1013</item>
+        <item name="android:statusBarColor">#0F1013</item>
+        <item name="android:navigationBarColor">#0F1013</item>
+        <item name="android:colorAccent">#8AB4F8</item>
+        <item name="android:colorControlActivated">#8AB4F8</item>
+    </style>
+
+
+    <!-- Invisible screen that receives widget taps -->
+    <style name="TapTheme" parent="android:Theme.Translucent.NoTitleBar">
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+</resources>
